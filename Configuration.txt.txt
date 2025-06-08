@@ -1,0 +1,188 @@
+Router 0
+Router> enable
+Router# configure terminal
+Router# hostname R1
+R1(config)# enable secret cisco
+R1(config)# line console 0
+R1(config-line)# password class0
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)# line vty 0 4
+R1(config-line)# password class0
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# ip address 192.168.2.1 255.255.255.240
+R1(config-if)# no shutdown
+R1(config)# interface GigabitEthernet0/1
+R1(config-if)# ip address 1.0.0.1 255.0.0.0
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# router ospf 1
+R1(config-router)# network 1.0.0.0 0.255.255.255 area 0
+R1(config-router)# network 192.168.2.0 0.0.0.15 area 0
+
+
+Router 1
+Router> enable
+Router# configure terminal
+Router# hostname R2
+R2(config)# enable secret cisco
+R2(config)# line console 0
+R2(config-line)# password class1
+R2(config-line)# login
+R2(config-line)# exit
+R2(config)# line vty 0 4
+R2(config-line)# password class1
+R2(config-line)# login
+R2(config-line)# exit
+R2(config)# interface GigabitEthernet0/0
+R2(config-if)# ip address 192.168.2.17 255.255.255.240
+R2(config-if)# no shutdown
+R2(config)# interface GigabitEthernet0/1
+R2(config-if)# ip address 2.0.0.1 255.0.0.0
+R2(config-if)# no shutdown
+R2(config-if)# exit
+R2(config)# router ospf 1
+R2(config-router)# network 2.0.0.0 0.255.255.255 area 0
+R2(config-router)# network 192.168.2.16 0.0.0.15 area 0
+
+Router 2
+Router> enable
+Router# configure terminal
+Router# hostname R3
+R3(config)# enable secret cisco
+R3(config)# line console 0
+R3(config-line)# password class2
+R3(config-line)# login
+R3(config-line)# exit
+R3(config)# line vty 0 4
+R3(config-line)# password class2
+R3(config-line)# login
+R3(config-line)# exit
+R3(config)# interface GigabitEthernet0/0
+R3(config-if)# ip address 192.168.2.33 255.255.255.240
+R3(config-if)# no shutdown
+R3(config)# interface GigabitEthernet0/1
+R3(config-if)# ip address 3.0.0.1 255.0.0.0
+R3(config-if)# no shutdown
+R3(config-if)# exit
+R3(config)# router ospf 1
+R3(config-router)# network 3.0.0.0 0.255.255.255 area 0
+R3(config-router)# network 192.168.2.32 0.0.0.15 area 0
+
+Router 3
+Router> enable
+Router# configure terminal
+Router# hostname R4
+R4(config)# enable secret cisco
+R4(config)# line console 0
+R4(config-line)# password class3
+R4(config-line)# login
+R4(config-line)# exit
+R4(config)# line vty 0 4
+R4(config-line)# password class3
+R4(config-line)# login
+R4(config-line)# exit
+R4(config)# interface GigabitEthernet0/0
+R4(config-if)# ip address 1.0.0.2 255.0.0.0
+R4(config-if)# no shutdown
+R4(config)# interface Serial0/1/0
+R4(config-if)# ip address 5.0.0.1 255.0.0.0
+R4(config-if)# no shutdown
+R4(config)# interface Serial0/1/1
+R4(config-if)# ip address 4.0.0.1 255.0.0.0
+R4(config-if)# no shutdown
+R4(config-if)# exit
+R4(config)# router ospf 1
+R4(config-router)# network 1.0.0.0 0.255.255.255 area 0
+R4(config-router)# network 4.0.0.0 0.255.255.255 area 0
+R4(config-router)# network 5.0.0.0 0.255.255.255 area 0
+
+
+Router 4
+Router> enable
+Router# configure terminal
+Router# hostname R5
+R5(config)# enable secret cisco
+R5(config)# line console 0
+R5(config-line)# password class4
+R5(config-line)# login
+R5(config-line)# exit
+R5(config)# line vty 0 4
+R5(config-line)# password class4
+R5(config-line)# login
+R5(config-line)# exit
+R5(config)# interface Serial0/1/0
+R5(config-if)# ip address 4.0.0.2 255.0.0.0
+R5(config-if)# no shutdown
+R5(config)# interface Serial0/1/1
+R5(config-if)# ip address 6.0.0.1 255.0.0.0
+R5(config-if)# no shutdown
+R5(config-if)# exit
+R5(config)# router ospf 1
+R5(config-router)# network 6.0.0.0 0.255.255.255 area 0
+R5(config-router)# network 4.0.0.0 0.255.255.255 area 0
+
+
+Router 5
+Router> enable
+Router# configure terminal
+Router# hostname R6
+R6(config)# enable secret cisco
+R6(config)# line console 0
+R6(config-line)# password class5
+R6(config-line)# login
+R6(config-line)# exit
+R6(config)# line vty 0 4
+R6(config-line)# password class5
+R6(config-line)# login
+R6(config-line)# exit
+R6(config)# interface GigabitEthernet0/0
+R6(config-if)# ip address 3.0.0.2 255.0.0.0
+R6(config-if)# no shutdown
+R6(config)# interface Serial0/1/0
+R6(config-if)# ip address 7.0.0.1 255.0.0.0
+R6(config-if)# no shutdown
+R6(config)# interface Serial0/1/1
+R6(config-if)# ip address 6.0.0.2 255.0.0.0
+R6(config-if)# no shutdown
+R6(config-if)# exit
+R6(config)# router ospf 1
+R6(config-router)# network 3.0.0.0 0.255.255.255 area 0
+R6(config-router)# network 6.0.0.0 0.255.255.255 area 0
+R6(config-router)# network 7.0.0.0 0.255.255.255 area 0
+
+
+Router 6
+Router> enable
+Router# configure terminal
+Router# hostname R7
+R7(config)# enable secret cisco
+R7(config)# line console 0
+R7(config-line)# password class6
+R7(config-line)# login
+R7(config-line)# exit
+R7(config)# line vty 0 4
+R7(config-line)# password class6
+R7(config-line)# login
+R7(config-line)# exit
+R7(config)# interface GigabitEthernet0/0
+R7(config-if)# ip address 2.0.0.2 255.0.0.0
+R7(config-if)# no shutdown
+R7(config)# interface Serial0/1/0
+R7(config-if)# ip address 5.0.0.2 255.0.0.0
+R7(config-if)# no shutdown
+R7(config)# interface Serial0/1/1
+R7(config-if)# ip address 7.0.0.2 255.0.0.0
+R7(config-if)# no shutdown
+R7(config-if)# exit
+R7(config)# router ospf 1
+R7(config-router)# network 2.0.0.0 0.255.255.255 area 0
+R7(config-router)# network 7.0.0.0 0.255.255.255 area 0
+R7(config-router)# network 5.0.0.0 0.255.255.255 area 0
+
+
+
+
+
